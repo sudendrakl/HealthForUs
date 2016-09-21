@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "563554185794",
+    "firebase_url": "https://bizapps-healthforus.firebaseio.com",
+    "project_id": "bizapps-healthforus",
+    "storage_bucket": "bizapps-healthforus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563554185794:android:ec853cf002b13fed",
+        "android_client_info": {
+          "package_name": "bizapps.com.healthforus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563554185794-j2l5q9g6j24um7cjmjnin0tgah7jmgti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "bizapps.com.healthforus",
+            "certificate_hash": "81BD34743781D57A37A8333066437ED38D165FAD"
+          }
+        },
+        {
+          "client_id": "563554185794-epv9869ns0b672cr9ushncagin3geo4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJw8FwEdQE3zzengUOMwxvBt_HcqwgfpQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563554185794-epv9869ns0b672cr9ushncagin3geo4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
