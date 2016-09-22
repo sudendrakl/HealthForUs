@@ -9,7 +9,7 @@ import lombok.ToString;
 
 @Data
 @ToString
-public class CommonResponse {
+public class GcmUpdateResponseDto {
   boolean status;
   String response;
   String error;

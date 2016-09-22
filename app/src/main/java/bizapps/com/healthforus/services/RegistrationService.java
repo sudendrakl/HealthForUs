@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.util.Log;
 import bizapps.com.healthforus.BuildConfig;
 import bizapps.com.healthforus.R;
-import bizapps.com.healthforus.data.CommonResponse;
+import bizapps.com.healthforus.data.GcmUpdateResponseDto;
 import bizapps.com.healthforus.data.TokenResponseDto;
 import bizapps.com.healthforus.utils.Constants;
 import com.google.gson.Gson;
@@ -17,7 +17,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -85,7 +84,7 @@ public class RegistrationService extends IntentService {
     headerMap.put("Content-Type", "application/json");
     Headers headers  = Headers.of(headerMap);
 
-    CommonResponse response = sendRequest(url, headers, params, CommonResponse.class);
+    GcmUpdateResponseDto response = sendRequest(url, headers, params, GcmUpdateResponseDto.class);
 
     if(response.isStatus()) {
       //TODO: success

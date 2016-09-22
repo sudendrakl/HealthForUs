@@ -1,9 +1,6 @@
 package bizapps.com.healthforus.helper;
 
-import android.content.Intent;
 import android.util.Log;
-import bizapps.com.healthforus.MainActivity;
-import bizapps.com.healthforus.MainApplication;
 import com.onesignal.OSNotificationAction;
 import com.onesignal.OSNotificationOpenResult;
 import com.onesignal.OneSignal;
@@ -35,11 +32,8 @@ public class OneSignalNotificationOpenedHandler implements OneSignal.Notificatio
     //TODO: do something, notification clicked
     // The following can be used to open an Activity of your choice.
 
-    Intent intent = new Intent(MainApplication.getInstance(), MainActivity.class);
-    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
     //TODO intent.putExtra("KEY", "VALUE");
-    MainApplication.getInstance().startActivity(intent);
-
+    //TODO broadcast message or have listener.opened() interface thing
     // Follow the instructions in the link below to prevent the launcher Activity from starting.
     // https://documentation.onesignal.com/docs/android-notification-customizations#changing-the-open-action-of-a-notification
   }
