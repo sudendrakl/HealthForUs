@@ -10,6 +10,16 @@ import com.onesignal.OneSignal;
  */
 
 public class MainApplication extends Application {
+  private static MainApplication _instance;
+
+  public static MainApplication getInstance() {
+    return _instance;
+  }
+
+  MainApplication() {
+    super();
+    _instance = this;
+  }
 
   @Override public void onCreate() {
     super.onCreate();

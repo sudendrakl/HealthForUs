@@ -1,6 +1,9 @@
 package bizapps.com.healthforus.helper;
 
+import android.content.Intent;
 import android.util.Log;
+import bizapps.com.healthforus.MainActivity;
+import bizapps.com.healthforus.MainApplication;
 import com.onesignal.OSNotification;
 import com.onesignal.OneSignal;
 import org.json.JSONObject;
@@ -26,6 +29,12 @@ public class OneSignalNotificationReceivedHandler implements OneSignal.Notificat
     }
 
     //TODO: do something, app is already opened, redirect to proper screen or webpage
+
+
+    Intent intent = new Intent(MainApplication.getInstance(), MainActivity.class);
+    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT | Intent.FLAG_ACTIVITY_NEW_TASK);
+    //TODO intent.putExtra("KEY", "VALUE");
+    MainApplication.getInstance().startActivity(intent);
 
   }
 }
