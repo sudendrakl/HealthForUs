@@ -6,12 +6,11 @@ import lombok.ToString;
 /**
  * Created by sudendra.kamble on 22/09/16.
  */
-
 @Data
 @ToString
-public class CommonResponse {
-  boolean status;
-  String response;
-  String error;
+public class TokenResponseDto {
+  boolean success;
+  String token;
+  String message;
   int code = -1;
 }

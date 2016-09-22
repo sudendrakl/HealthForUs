@@ -4,15 +4,20 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
 import bizapps.com.healthforus.BuildConfig;
+import bizapps.com.healthforus.R;
 import bizapps.com.healthforus.data.CommonResponse;
+import bizapps.com.healthforus.data.TokenResponseDto;
 import bizapps.com.healthforus.utils.Constants;
 import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.HashMap;
+import okhttp3.Headers;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -33,40 +38,83 @@ public class RegistrationService extends IntentService {
 
   @Override protected void onHandleIntent(Intent intent) {
     //assuming all are post api's....please handle for get or put
-    String formBody = intent.getStringExtra(Constants.IntentExtra.FORM_BODY);
-    String url = BuildConfig.BASE_URL + intent.getStringExtra(Constants.IntentExtra.URL);
-    String authToken = intent.getStringExtra(Constants.IntentExtra.AUTH_TOKEN);
+    String gcmKey = intent.getStringExtra(Constants.IntentExtra.GCM_KEY);
 
     try {
-      runSync(url, authToken, formBody);
+      String authToken = fetchTokenAndRegister();
+      updateTokenToServer(authToken, gcmKey);
+
+      //TODO: update UI to continue...throw a broadcast msg to MainActivity
     } catch (Exception e) {
       //TODO: failed to send data
       e.printStackTrace();
     }
   }
 
-  public void runSync(String url, String token, String params) throws Exception {
+  private String fetchTokenAndRegister() throws Exception {
+    String url = BuildConfig.BASE_URL + Constants.URLS.REGISTER_URL;
+
+    JSONObject jsonObject = new JSONObject();
+    jsonObject.put("app_name", getAppName());
+    String postParams = jsonObject.toString();
+
+
+    TokenResponseDto response = sendRequest(url, null, postParams, TokenResponseDto.class);
+
+    if(response.isSuccess()) {
+      //TODO: success
+      return response.getToken();
+    } else {
+      //TODO: failure
+      throw new Exception("Failed to get token. Message : " + response.getMessage() + " Code : " + response.getCode());
+    }
+
+  }
+
+  private void updateTokenToServer(String token, String gcmKey) throws Exception {
+
+    String url = BuildConfig.BASE_URL + Constants.URLS.UPDATE_GCM_KEY_URL;
+
+    JSONObject jsonObject = new JSONObject();
+    jsonObject.put("app_name", getAppName());
+    jsonObject.put("gcm_key", gcmKey);
+    String params = jsonObject.toString();
+
+    HashMap<String, String> headerMap = new HashMap<>();
+    headerMap.put("Authorization", token);
+    headerMap.put("Content-Type", "application/json");
+    Headers headers  = Headers.of(headerMap);
+
+    CommonResponse response = sendRequest(url, headers, params, CommonResponse.class);
+
+    if(response.isStatus()) {
+      //TODO: success
+      Log.i(TAG, "success ... " + response.getResponse());
+    } else {
+      //TODO: failure
+      throw new Exception("Failed to get token. Message : " + response.getError() + " Code : " + response.getCode());
+    }
+  }
+
+  private <T> T sendRequest(String url, Headers headers, String postParams, Class<T> clazz) throws IOException {
     Request request = new Request.Builder().url(url)
-        .addHeader("Authorization", token)
-        .addHeader("Content-Type", "application/json")
-        .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, params))
+        .headers(headers)
+        .post(RequestBody.create(MEDIA_TYPE_MARKDOWN, postParams))
         .build();
 
     Response response = client.newCall(request).execute();
     if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 
-    System.out.println(response.body().string());
+    Log.i(TAG, response.body().string());
 
-    CommonResponse commonResponse =
-        gson.fromJson(response.body().charStream(), CommonResponse.class);
+    T responseParse = gson.fromJson(response.body().charStream(), clazz);
     //TODO: updated response
-    Log.i(TAG, commonResponse.toString());
+    Log.i(TAG, response.toString());
 
-    if(commonResponse.isStatus()) {
-      //TODO: success
-    } else {
-      //TODO: failure
-    }
+    return responseParse;
+  }
 
+  public String getAppName() {
+    return getString(R.string.app_name);
   }
 }
