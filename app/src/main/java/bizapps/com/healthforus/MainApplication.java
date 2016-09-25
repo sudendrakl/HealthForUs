@@ -16,7 +16,7 @@ public class MainApplication extends Application {
     return _instance;
   }
 
-  MainApplication() {
+  public MainApplication() {
     super();
     _instance = this;
   }
