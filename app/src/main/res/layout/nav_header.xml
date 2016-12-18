@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header_layout"
+    android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:layout_marginTop="30dp"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:gravity="left">
+
+    <TextView
+        android:id="@+id/loc_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:textSize="18sp"
+        android:gravity="left|center_vertical"
+        android:drawableLeft="@drawable/ic_location"
+        android:textColor="@android:color/white"
+        />
+
+
+        <ImageView
+            android:layout_marginTop="30dp"
+            android:id="@+id/loc_img"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@drawable/user_info"/>
+
+
+</LinearLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="5"
+    android:orientation="vertical"
+    tools:context="bizapps.com.healthforusPatient.activity.HomeActivity">
+
+    <TextView
+        android:id="@+id/tv_search"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Search Doctor"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/icons"
+        android:background="@drawable/my_border"
+        />
+    <TextView
+        android:id="@+id/tv_healthfeed"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Health Feed"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/icons"
+        android:background="@drawable/my_border"
+        />
+    <TextView
+        android:id="@+id/tv_records"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="Health Records"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/icons"
+        android:background="@drawable/my_border"
+        />
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        android:text="Logout"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="@color/icons"
+        android:background="@drawable/my_border"
+        />
+    <TextView
+        android:id="@+id/tv_ads"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:text="Advertisements"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/icons"
+        android:background="@drawable/my_border"
+        />
+
+
+</LinearLayout>

@@ -1,3 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="app_name">HealthForUs</string>
+
+  <string name="app_name">Medico4Us Patient</string>
+  <string name="hello_world">Hello world!</string>
+  <string name="title_activity_mobile_verification">MobileVerificationActivity</string>
+  <string name="patient">Patient</string>
+  <string name="doctor">Doctor</string>
+  <string name="title_activity_register">RegisterActivity</string>
+  <string name="register">REGISTER</string>
+  <string name="title_activity_login">LoginActivity</string>
+  <string name="login">Login</string>
+  <string name="forgot_password"><u>forgot password?</u></string>
+  <string name="title_activity_forgot_password">ForgotPasswordActivity</string>
+  <string name="frgtpswd">FORGOT PASSWORD</string>
+  <string name="title_activity_place">Location</string>
+  <string name="place_details">&lt;b&gt;%1$s&lt;/b&gt;&lt;br/&gt;&lt;i&gt;</string>
+  <string name="no_geocoder_available">No geocoder available</string>
+  <string name="drawer_open">Open navigation drawer</string>
+  <string name="drawer_close">Close navigation drawer</string>
+  <string name="fetch_address">Fetch address</string>
+  <string name="terms"><u><i>Terms and Conditions</i></u></string>
+  <string name="privacy"><u><i>Privacy policy</i></u></string>
+  <string name="address_found">Address found</string>
+
+  <string name="no_address_found">Sorry, no address found</string>
+  <string name="no_location_data_provided">No location data provided</string>
+  <string name="service_not_available">Sorry, the service is not available</string>
+  <string name="invalid_lat_long_used">Invalid latitude or longitude used</string>
+  <string name="title_activity_feed">FeedActivity</string>
+  <string name="large_text">
+    "Material is the metaphor.\n\n"
+
+    "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+    "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+    "technologically advanced and open to imagination and magic.\n"
+    "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+    "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+    "flexibility of the material creates new affordances that supercede those in the physical "
+    "world, without breaking the rules of physics.\n"
+    "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+    "interact, and exist in space and in relation to each other. Realistic lighting shows "
+    "seams, divides space, and indicates moving parts.\n\n"
+
+    "Bold, graphic, intentional.\n\n"
+
+    "The foundational elements of print based design typography, grids, space, scale, color, "
+    "and use of imagery guide visual treatments. These elements do far more than please the "
+    "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+    "imagery, large scale typography, and intentional white space create a bold and graphic "
+    "interface that immerse the user in the experience.\n"
+    "An emphasis on user actions makes core functionality immediately apparent and provides "
+    "waypoints for the user.\n\n"
+
+    "Motion provides meaning.\n\n"
+
+    "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+    "inflection points that initiate motion, transforming the whole design.\n"
+    "All action takes place in a single environment. Objects are presented to the user without "
+    "breaking the continuity of experience even as they transform and reorganize.\n"
+    "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+    "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+    "3D world.\n\n"
+
+    "The material environment is a 3D space, which means all objects have x, y, and z "
+    "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+    "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+    "position along the z-axis and has a standard 1dp thickness.\n"
+    "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+    "emulated by manipulating the y-axis.\n\n"
+
+    "Light and shadow.\n\n"
+
+    "Within the material environment, virtual lights illuminate the scene. Key lights create "
+    "directional shadows, while ambient light creates soft shadows from all angles.\n"
+    "Shadows in the material environment are cast by these two light sources. In Android "
+    "development, shadows occur when light sources are blocked by sheets of material at "
+    "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+    "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+    "Resting elevation.\n\n"
+
+    "All material objects, regardless of size, have a resting elevation, or default elevation "
+    "that does not change. If an object changes elevation, it should return to its resting "
+    "elevation as soon as possible.\n\n"
+
+    "Component elevations.\n\n"
+
+    "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+    "does not vary from 6dp in one app to 16dp in another app).\n"
+    "Components may have different resting elevations across platforms, depending on the depth "
+    "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+    "Responsive elevation and dynamic elevation offsets.\n\n"
+
+    "Some component types have responsive elevation, meaning they change elevation in response "
+    "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+    "changes are consistently implemented using dynamic elevation offsets.\n"
+    "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+    "to the component’s resting state. They ensure that elevation changes are consistent "
+    "across actions and component types. For example, all components that lift on press have "
+    "the same elevation change relative to their resting elevation.\n"
+    "Once the input event is completed or cancelled, the component will return to its resting "
+    "elevation.\n\n"
+
+    "Avoiding elevation interference.\n\n"
+
+    "Components with responsive elevations may encounter other components as they move between "
+    "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+    "through other material, components avoid interfering with one another any number of ways, "
+    "whether on a per component basis or using the entire app layout.\n"
+    "On a component level, components can move or be removed before they cause interference. "
+    "For example, a floating action button (FAB) can disappear or move off screen before a "
+    "user picks up a card, or it can move if a snackbar appears.\n"
+    "On the layout level, design your app layout to minimize opportunities for interference. "
+    "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+    "when a user tries to pick up one of cards.\n\n"
+  </string>
+  <string name="action_settings">Settings</string>
+
+   <string name="different_colors_indicate_different_nutrients">
+ Different colors indicate different nutrients\n\n
+The fruits and vegetables we eat indicate different nutrient it is comprised of.\n
+    Health experts and nutritionists advise all to have our plates filled with coloured fruits and vegetables. It is the easiest things one can do get maximum nutrients and improve the overall health.\n
+        Red Colour\n
+They are rich anti-oxidants. Red coloured foods enhance the blood and purify them. They put a battle against the harmful free-radicals. Pomegranate, Beets, Papaya, Watermelon, Kidney Beans, Guava, Red Apples, Raspberries, Tomato, Cherries etc are red coloured ones.\n
+Green Colour\n
+Green fruits and vegetables are rich in Vitamin A, Vitamin C and Vitamin K.  They are good for our eyes and bones. These type of foods aid blood clot under circumstance of accident and prevents heavy blood loss. Leafy vegetables, Avocados, Cucumber, Beans, Ladies Finger, Green Grapes are some of the green coloured fruits and veggies.\n
+  </string>
+
+  <string name="enhance_your_brain_power_with_kapalabhati_yoga">
+
+Enhance your Brain power with Kapalabhati Yoga\n\n
+Human brain is one of the complex structures in the entire universe. Brain is considered as the center of our nervous system.\n
+Below are the benefits of doing Kapalabhati Yoga:\n
+It enhances our memory power.\n
+Regular practice of this yoga, helps remove unwanted toxins from the body.\n
+This yoga improves blood supply to the brain.\n
+In invigorates the brain cells and thus improves its power and performance.\n
+Not giving any work to the brain makes it very dull. This yoga activates the brain.\n
+Also this Kapalabhati yoga is a cure to digestive disorders.\n
+
+ </string>
+  <string name="good_sleep_is_a_key_to_happy_life">
+
+Good Sleep is a Key to Happy Life\n\n
+One of the important pillars to a happy and healthy life is Sleep. If our sleep is affected, equilibrium changes in our body and the overall health of our body is affected.\n
+Here’s what you can do to improve your sleep:\n
+Change your lifestyle. Ensure that you do not use your smart phone or laptop or stay glued to your television after 10pm.\n
+Have a light dinner. See to it that you are done with your dinner two hours before you go to bed.\n
+Include more of wheat products in your diet, especially for the dinner.\n
+Listen to pleasant music and perfume extracted from flowers help one to get sleep.\n
+Have a glass of un-skimmed buffalo milk before sleep.\n
+
+
+ </string>
+  <string name="what_are_the_benefits_of_barefoot_training">
+
+What are the benefits of Barefoot training?\n\n
+We never step out of our home barefoot. Most time of the day we cover our foot with slippers or shoes. Doing so, you will not get any benefits. You will get the below benefits with barefoot training.\n
+Our feet are the direct contact point of our body with the ground. With barefoot training have a stable body. Only if our foot is stable, then only our knee and hips and the whole body can be stable.\n
+Many will not know that our feet accommodate over thirty per cent of the joints in our body. So most of the injuries have their roots in the feet. Barefoot training you can prevent injuries.\n
+Barefoot training increases the stability and makes our body more flexible. You can prepare your body for a wide range of action.\n
+
+ </string>
+  <string name="why_breakfast_is_crucial_for_us">
+
+ Why breakfast is crucial for us?\n\n
+You might have come across the saying - "Breakfast like a king, lunch like a prince and dine like a pauper". But not many are giving importance to breakfast. Many miss their breakfast.  \n
+Skipping breakfast can affect the functioning of vital organs in our body. From the time of the last dinner to the time of breakfast, there is a gap of over 8-10 hours. In this time, the blood sugar levels in the body dips and the metabolic rate of our body falls.\n
+Health experts say that over one-third of our calorie requirement should come from breakfast. So always start your day with a heavy breakfast.\n
+
+ </string>
+  <string name="ad1"><![CDATA[
+ <p><b>AEnterprises:</b><p/>
+ Manufacturer and Contract Manufacturer of Ayurvedic & Food products since 1983.
+ ]]>
+ </string>
+
+  <string name="ad2"><![CDATA[
+ <p><b>Ashwani Hospital:</b><p/>
+ One of the Famous hospital in town “Ashwani Hospital provides you with world-class medical expertise,
+
+state-of-the-art facilities, a space filled with love and laughter”.
+ ]]></string>
+  <string name="ad3"><![CDATA[
+ <p><b>Verdan Care Center:</b><p/>
+ Verdan Care Center is one of the best mother & child hospital, run by experienced senior doctors with
+
+Indore facilities and 24hrs services.
+ ]]></string>
 </resources>

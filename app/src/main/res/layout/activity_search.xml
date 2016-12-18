@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="bizapps.com.healthforusPatient.activity.SearchActivity"
+    android:orientation="vertical">
+
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <Spinner
+            android:id="@+id/spinner_spez"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:spinnerMode="dialog" />
+        <TextView
+            android:id="@+id/tv_location"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:textColor="#000000"
+            android:gravity="center"
+            android:drawableRight="@drawable/ic_location"
+            android:textSize="15sp"
+            />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view01"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/ll_status"
+        android:background="#80000000"/>
+    <!--<ScrollView-->
+        <!--android:id="@+id/scrollView"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_below="@+id/view01"-->
+        <!--android:fillViewport="true">-->
+    <ListView
+        android:id="@+id/lv_doctors"
+        android:layout_width="match_parent"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_height="wrap_content"
+        android:dividerHeight="10dp"
+        android:layout_below="@+id/view01"
+        android:divider="#00000000"
+        android:visibility="gone"/>
+    <!--</ScrollView>-->
+    <!--<View-->
+        <!--android:id="@+id/view02"-->
+        <!--android:layout_below="@+id/lv_doctors"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+        <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
+        <!--android:layout_height="2dp"-->
+        <!--android:visibility="gone"-->
+        <!--android:background="#40000000"/>-->
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true">-->
+        <!--<Button-->
+            <!--android:id="@+id/btn_upload"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="#009688"-->
+            <!--android:textColor="#FFFFFF"-->
+            <!--android:text="Sign out"/>-->
+    <!--</FrameLayout>-->
+
+</RelativeLayout>

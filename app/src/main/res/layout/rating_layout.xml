@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="100dp"
+    android:background="#FFFFFF"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="10dp"
+    android:padding="2dip">
+
+    <TextView android:text="Rating &amp; Review" android:id="@+id/rank_dialog_text1"
+        android:textSize="24dp" android:layout_marginTop="10dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+    <RatingBar
+        android:layout_marginTop="10dp" android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:clickable="true"
+        android:id="@+id/dialog_ratingbar"
+        android:layout_gravity="center"
+        android:numStars="5"
+        android:stepSize="1.0" android:rating="1"
+        android:progressBackgroundTint="#99000000"
+        android:progressTint="@color/primary"
+        android:isIndicator="false"/>
+    <EditText
+        android:id="@+id/et_comment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Review"
+        android:textColor="#000000"/>
+    <Button android:id="@+id/rank_dialog_button"
+        android:layout_height="wrap_content"
+        android:text="Submit"  android:focusable="false"
+        android:layout_margin="5dip" android:textColor="#FFFFFF"
+        android:textSize="20dip" android:layout_width="fill_parent"
+        android:background="@drawable/rounded_button"
+        />
+
+</LinearLayout>

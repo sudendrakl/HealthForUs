@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/edit_profile"
+            android:icon="@mipmap/ic_ep"
+            android:title="Edit profile" />
+        <!--<item-->
+            <!--android:id="@+id/order_list"-->
+            <!--android:icon="@mipmap/ic_orders"-->
+            <!--android:title="Orders" />-->
+
+        <!--<item android:id="@+id/promotion"-->
+            <!--android:icon="@mipmap/ic_promo"-->
+            <!--android:title="Promotions"/>-->
+        <item
+            android:id="@+id/sign_out"
+            android:icon="@mipmap/ic_signout"
+            android:title="Signout" />
+
+        <!--<item-->
+            <!--android:id="@+id/nav_third_fragment"-->
+            <!--android:icon="@drawable/ic_account"-->
+            <!--android:title="Account" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_fourth_fragment"-->
+            <!--android:icon="@drawable/ic_offers"-->
+            <!--android:title="Offers" />-->
+        <!--<item android:title="Information">-->
+            <!--<menu>-->
+
+                <!--<item-->
+                    <!--android:id="@+id/nav_sub_01"-->
+                    <!--android:icon="@drawable/ic_call"-->
+                    <!--android:title="Call Customer Care" />-->
+                <!--<item-->
+                    <!--android:id="@+id/nav_sub_02"-->
+                    <!--android:icon="@drawable/ic_feedback"-->
+                    <!--android:title="Feedback" />-->
+                <!--<item-->
+                    <!--android:id="@+id/nav_sub_03"-->
+                    <!--android:icon="@drawable/ic_about"-->
+                    <!--android:title="About" />-->
+                <!--<item-->
+                    <!--android:id="@+id/nav_sub_04"-->
+                    <!--android:icon="@drawable/ic_logout"-->
+                    <!--android:title="Logout" />-->
+            <!--</menu>-->
+        <!--</item>-->
+
+    </group>
+
+
+</menu>

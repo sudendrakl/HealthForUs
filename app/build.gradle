@@ -1,83 +1,79 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 24
-  buildToolsVersion "24.0.0"
+
+  compileSdkVersion 25
+  buildToolsVersion "25.0.1"
+  useLibrary 'org.apache.http.legacy'
+  char[]  name = "Health4UsPatient";
+
   defaultConfig {
-    applicationId "bizapps.com.healthforus"
-    minSdkVersion 15
-    targetSdkVersion 24
-    versionCode 1
-    versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    manifestPlaceholders = [manifestApplicationId: "${applicationId}",
-                            onesignal_app_id: "0a7e0448-c7f4-4a7f-8c65-2bea16fd6897",
+    applicationId "bizapps.com.healthforusPatient"
+    minSdkVersion 11
+    targetSdkVersion 25
+    multiDexEnabled true
+    versionCode 6
+    versionName "1.2"
+    manifestPlaceholders = [manifestApplicationId          : "${applicationId}",
+                            onesignal_app_id               : "0a7e0448-c7f4-4a7f-8c65-2bea16fd6897",
                             onesignal_google_project_number: "563554185794"]
+    archivesBaseName = "$name-v$versionName-c$versionCode"
   }
 
   signingConfigs {
-    release {
-      storeFile file("release-keystore.jks")
-      storePassword "release-keystore"
-      keyAlias "release-keystore"
-      keyPassword "release-keystore"
-    }
-    debug {
-      storeFile file("debug.keystore")
-      storePassword "android"
+    config {
+      keyAlias 'alias'
+      keyPassword '123456'
+      storeFile file('DoctorPlus.jks')
+      storePassword '123456'
     }
   }
-
   buildTypes {
     release {
       debuggable false
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-      signingConfig signingConfigs.release
-      versionNameSuffix "-release"
-      buildConfigField "String", "BASE_URL", '"ADD YOUR URL HERE"' //TODO
-
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro',
+          '../proguard-project.txt'
+      signingConfig signingConfigs.config
+      buildConfigField "String", "BASE_URL", '"http://139.59.5.88:6578/"' //TODO for debug
     }
     debug {
       debuggable true
-      minifyEnabled false
-      signingConfig signingConfigs.debug
-      versionNameSuffix "-debug"
+      signingConfig signingConfigs.config
       buildConfigField "String", "BASE_URL", '"http://139.59.5.88:6578/"' //TODO for debug
-
     }
   }
-
-  lintOptions {
-    disable 'InvalidPackage' //for Butterknife injection
-    checkReleaseBuilds true
-    // Or, if you prefer, you can continue to check for errors in release builds,
-    // but continue the build even when errors are found:
-    abortOnError false
+  packagingOptions {
+    exclude 'META-INF/DEPENDENCIES'
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/LICENSE'
   }
-
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
-  androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-    exclude group: 'com.android.support', module: 'support-annotations'
-  })
-  compile 'com.android.support:appcompat-v7:24.2.1'
-  testCompile 'junit:junit:4.12'
+  compile 'com.android.support:appcompat-v7:25.0.1'
+  compile 'com.android.support:support-v4:25.0.1'
+  compile 'com.android.support:design:25.0.1'
+  //compile fileTree(include: ['*.jar'], dir: 'libs')
+  compile files('../libs/volley.jar')
+  compile 'org.apache.httpcomponents:httpclient-android:4.3.5.1'
+  compile('org.apache.httpcomponents:httpmime:4.3') {
+    exclude module: 'org.apache.httpcomponents:httpclient'
+  }
 
+  //    compile 'org.apache.httpcomponents:httpcore:4.4.5'
+  compile 'com.android.support:palette-v7:25.0.1'
+  compile 'com.android.support:cardview-v7:25.0.1'
+  compile 'com.google.android.gms:play-services-gcm:9.4.0'
+  compile 'com.google.android.gms:play-services-location:9.4.0'
+  compile 'com.google.android.gms:play-services-maps:9.4.0'
+  compile 'com.google.android.gms:play-services-places:9.4.0'
+  compile 'com.squareup.picasso:picasso:2.4.0'
   compile 'com.google.firebase:firebase-core:9.4.0'
   compile 'com.google.firebase:firebase-crash:9.4.0'
   compile 'com.onesignal:OneSignal:3.+@aar'
-  // Required for OneSignal, even if you have added FCM.
-  compile 'com.google.android.gms:play-services-gcm:9.4.0'
-
-  // Required for geotagging
-  compile "com.google.android.gms:play-services-location:9.4.0"
-
-  compile 'com.squareup.okhttp3:okhttp:3.4.1'
   provided 'org.projectlombok:lombok:1.14.4'
-  compile 'com.google.code.gson:gson:2.2.4'
+  compile 'com.squareup.okhttp3:okhttp:3.4.1'
+  compile 'com.google.code.gson:gson:2.4'
 }
-
 apply plugin: 'com.google.gms.google-services'

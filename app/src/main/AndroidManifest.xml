@@ -1,40 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="bizapps.com.healthforus"
+    package="bizapps.com.healthforusPatient"
+    android:versionCode="3"
+    android:versionName="1.0"
     >
 
+  <uses-sdk
+      android:minSdkVersion="11"
+      android:targetSdkVersion="21"
+      />
+
+  <uses-permission android:name="android.permission.GET_TASKS"/>
+  <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+  <permission
+      android:name="bizapps.com.healthforusPatient.permission.C2D_MESSAGE"
+      android:protectionLevel="signature"
+      />
+
+  <uses-permission android:name="info.androidhive.gcm.permission.C2D_MESSAGE"/>
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+  <uses-permission android:name="android.permission.CALL_PHONE"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
   <application
+      android:name=".BZAppApplication"
       android:allowBackup="true"
-      android:icon="@mipmap/ic_launcher"
+      android:icon="@mipmap/ic_launcher_new_01"
       android:label="@string/app_name"
-      android:supportsRtl="true"
-      android:theme="@style/AppTheme"
-      android:name=".MainApplication"
+      android:largeHeap="true"
+      android:theme="@style/AppMaterialTheme"
       >
-    <activity android:name=".MainActivity">
+    <activity
+        android:name=".activity.SplashScreenActivity"
+        android:label="@string/app_name"
+        >
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
+    <activity
+        android:name=".activity.MobileVerificationActivity"
+        android:label="@string/title_activity_mobile_verification"
+        />
+    <activity
+        android:name=".activity.RegisterActivity"
+        android:label="@string/title_activity_register"
+        />
+    <activity
+        android:name=".activity.LoginActivity"
+        android:label="@string/title_activity_login"
+        />
+    <activity
+        android:name=".activity.ForgotPasswordActivity"
+        android:label="@string/title_activity_forgot_password"
+        />
+
+    <receiver
+        android:name=".utills.ConnectivityReceiver"
+        android:enabled="true"
+        >
+      <intent-filter>
+        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+      </intent-filter>
+    </receiver>
+
+    <activity
+        android:name=".activity.SearchActivity"
+        android:label="Search Doctor"
+        android:launchMode="singleTop"
+        android:parentActivityName=".activity.HomeActivity"
+        android:theme="@style/AppThemeNew"
+        />
+    <activity
+        android:name=".activity.PlaceActivity"
+        android:label="Location"
+        android:theme="@style/AppThemeNew"
+        />
+
+    <receiver
+        android:name="com.google.android.gms.gcm.GcmReceiver"
+        android:exported="true"
+        android:permission="com.google.android.c2dm.permission.SEND"
+        >
+      <intent-filter>
+        <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+
+        <category android:name="info.androidhive.gcm"/>
+      </intent-filter>
+    </receiver>
+
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyDiygI000yVjeEDywnq8wTWxKx5ARkAscs"
+        />
+    <!-- <meta-data -->
+    <!-- android:name="com.google.android.maps.v2.API_KEY" -->
+    <!-- android:value="AIzaSyA3t1B061J6ZpgsfyXew5FvD9SuhvhKC8o" /> -->
+
+    <activity android:name=".activity.DoctorActivity"/>
+    <activity
+        android:name=".activity.MainActivityNew"
+        android:launchMode="singleTop"
+        android:parentActivityName=".activity.SearchActivity"
+        />
+    <activity
+        android:name=".activity.BookingActivity"
+        android:label="Book slot"
+        android:parentActivityName=".activity.MainActivityNew"
+        />
 
     <service
-        android:name=".services.FirebaseInstanceIDListenerService">
+        android:name=".utills.FetchAddressIntentService"
+        android:exported="false"
+        />
+
+    <activity
+        android:name=".activity.HealthRecordActivity"
+        android:parentActivityName=".activity.HealthRecordListActivity"
+        />
+    <activity
+        android:name=".activity.HealthRecordListActivity"
+        android:label="Health Record List"
+        android:parentActivityName=".activity.HomeActivity"
+        android:theme="@style/AppThemeNew"
+        />
+    <activity
+        android:name=".activity.HomeActivity"
+        android:label="@string/app_name"
+        android:theme="@style/AppThemeNew"
+        />
+    <activity
+        android:name=".activity.BlogListActivity"
+        android:label="Health Tips"
+        android:parentActivityName=".activity.HomeActivity"
+        android:theme="@style/AppThemeNew"
+        />
+    <activity
+        android:name=".activity.BlogDetailActivity"
+        android:parentActivityName=".activity.BlogListActivity"
+        />
+    <activity
+        android:name=".activity.GalleryActivity"
+        android:label="Images"
+        android:parentActivityName=".activity.MainActivityNew"
+        android:theme="@style/AppThemeNew"
+        />
+    <activity
+        android:name=".activity.ReviewsActivity"
+        android:label="Reviews"
+        android:parentActivityName=".activity.MainActivityNew"
+        android:theme="@style/AppThemeNew"
+        />
+    <activity
+        android:name=".activity.AdsActivity"
+        android:label="Advertisements"
+        android:parentActivityName=".activity.HomeActivity"
+        android:theme="@style/AppThemeNew"
+        />
+
+    <service android:name=".services.FirebaseInstanceIDListenerService">
       <intent-filter>
-        <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
       </intent-filter>
     </service>
-
     <service
         android:name=".services.OneSignalNotificationExtenderService"
-        android:exported="false">
+        android:exported="false"
+        >
       <intent-filter>
-        <action android:name="com.onesignal.NotificationExtender" />
+        <action android:name="com.onesignal.NotificationExtender"/>
       </intent-filter>
     </service>
-
     <service android:name=".services.RegistrationService"/>
+
   </application>
 
 </manifest>

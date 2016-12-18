@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:563554185794:android:ec853cf002b13fed",
+        "mobilesdk_app_id": "1:563554185794:android:80daa243fcfe1598",
         "android_client_info": {
-          "package_name": "bizapps.com.healthforus"
+          "package_name": "bizapps.com.healthforusPatient"
         }
       },
       "oauth_client": [
         {
-          "client_id": "563554185794-j2l5q9g6j24um7cjmjnin0tgah7jmgti.apps.googleusercontent.com",
+          "client_id": "563554185794-6mnc4l8o61ha81ar7ec2cdpav6o8i0ul.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "bizapps.com.healthforus",
+            "package_name": "bizapps.com.healthforusPatient",
             "certificate_hash": "81BD34743781D57A37A8333066437ED38D165FAD"
           }
         },

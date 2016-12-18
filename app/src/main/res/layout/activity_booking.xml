@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="bizapps.com.healthforusPatient.activity.BookingActivity"
+    android:background="#FFFFFF">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_collapseMode="pin" />
+    <RelativeLayout
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/layout_docDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#40000000">
+        <ImageView
+            android:id="@+id/doc_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/user_info"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/doc_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/doc_img"
+            android:layout_marginTop="5dp"
+            android:text="Doctor Name"
+            android:textSize="16sp"
+            android:textColor="#000000"/>
+        <TextView
+            android:id="@+id/doc_splz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/doc_img"
+            android:layout_below="@+id/doc_name"
+            android:text="Doctor specialization"
+            android:textSize="14sp"
+            android:textColor="#80000000"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_date"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/layout_docDetails">
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:text="07-Jul-2016"
+            android:layout_centerInParent="true"/>
+        <ImageView
+            android:id="@+id/arrow_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_previous"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            />
+        <ImageView
+            android:id="@+id/arrow_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_next"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_00"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_below="@+id/layout_date"
+        android:background="#40000000"/>
+
+    <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/gridView1"
+        android:numColumns="4"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/view_00"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:columnWidth="90dp"
+        android:stretchMode="columnWidth"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+</RelativeLayout>

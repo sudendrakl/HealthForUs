@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:id="@+id/tv_reviewName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:textColor="#BF000000"
+        android:fontFamily="sans-serif"
+        android:text="afsdf asdfsdaf"
+        />
+    <TextView
+        android:id="@+id/tv_reviewComment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="15sp"
+        android:singleLine="false"
+        android:fontFamily="sans-serif"
+        android:text="asdfdasf asdfasdfsda asdfasdfasdf asdfasdfasdfsadf"
+        android:textColor="#99000000"/>
+
+
+</LinearLayout>
