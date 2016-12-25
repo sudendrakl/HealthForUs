@@ -14,10 +14,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.text.TextUtilsCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -487,17 +489,42 @@ public class MainActivityNew extends AppCompatActivity {
     }
 
 
-    
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+    @Override public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.doctor_menu, menu);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.menu_share) {
+            startShare();
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void startShare() {
+        final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+        String shareLink;
+        try {
+            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            shareLink = "market://details?id=" + appPackageName;
+            shareLink = "https://play.google.com/store/apps/details?id=" + appPackageName;
+        } catch (android.content.ActivityNotFoundException anfe) {
+            //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+            shareLink = "https://play.google.com/store/apps/details?id=" + appPackageName;
+        }
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        String text =  mData.getDr_name();
+        text += "\r\n" + mData.getDesignation();
+        if(!TextUtils.isEmpty(mData.getExperence()))
+            text += "\r\n"+mData.getExperence() + " yrs";
+        text += "\r\n" + mData.getSpecialization();
+        text += "\r\n"+ shareLink;
+
+        sendIntent.putExtra(Intent.EXTRA_TEXT, text);
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 
     public void setRating(){

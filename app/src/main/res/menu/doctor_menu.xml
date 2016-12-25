@@ -9,13 +9,5 @@
       android:icon="@mipmap/share_white"
       android:visible="true"
       />
-  <item
-      android:id="@+id/menu_search"
-      app:showAsAction="ifRoom|collapseActionView"
-      app:actionViewClass="android.support.v7.widget.SearchView"
-      android:title="Search"
-      android:icon="@drawable/ic_search_white"
-      android:visible="true"
-      />
 
 </menu>

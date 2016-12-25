@@ -1,15 +1,15 @@
 package bizapps.com.healthforusPatient.activity;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
+import android.app.SearchManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.text.Layout;
-import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
@@ -22,7 +22,9 @@ import android.view.Window;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import bizapps.com.healthforusPatient.Model.BlogModel;
+import bizapps.com.healthforusPatient.R;
+import bizapps.com.healthforusPatient.utills.GsonRequest;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -31,14 +33,9 @@ import com.android.volley.Response;
 import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import bizapps.com.healthforusPatient.Model.BlogModel;
-import bizapps.com.healthforusPatient.R;
-import bizapps.com.healthforusPatient.utills.GsonRequest;
 
 public class BlogListActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -140,6 +137,10 @@ public class BlogListActivity extends AppCompatActivity implements View.OnClickL
 
     @Override public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.blog_menu, menu);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
+        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+
         return true;
     }
 
