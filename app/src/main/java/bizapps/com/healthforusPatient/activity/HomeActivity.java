@@ -79,7 +79,8 @@ public class HomeActivity extends AppCompatActivity {
         tvAds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomeActivity.this,AdsActivity.class);
+                //Intent intent = new Intent(HomeActivity.this,AdsActivity.class);
+                Intent intent = new Intent(HomeActivity.this, BlogListActivity.class);
                 startActivity(intent);
             }
         });
